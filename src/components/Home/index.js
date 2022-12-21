@@ -1,57 +1,67 @@
-import {useState, useEffect} from 'react';
+import { Component } from 'react';
 
-import {getItems, addItem} from "../../utils/indexdb";
+import Balance from '../Balance';
+import Transactions from '../Transactions';
+import Form from '../Form';
+import ErrorBoundary from '../ErrorBoundary';
 
-import Balance from "../Balance";
-import Transactions from "../Transactions";
-import Form from "../Form";
-import ErrorBoundary from "../ErrorBoundary";
-import Header from "../Header";
+import { Wrapper } from './styles'
 
-import {GlobalStyle, Wrapper} from "./styles";
+import { getItems, addItem } from '../../utils/indexdb'
 
-const Home = () => {
-    const [balance, setBalance] = useState(0);
-    const [transactions, setTransactions] = useState([])
+class Home extends Component {
+    constructor() {
+        super();
 
-    const onChange = ({value, date, comment}) => {
+        this.state = {
+            balance: 0,
+            transactions: []
+        }
+
+        this.onChange = this.onChange.bind(this);
+        console.log('constructor')
+    }
+
+    componentDidMount() {
+        getItems().then((transactions) => {
+            this.setState({
+                transactions
+            })
+        }).catch((e) => {
+            debugger
+        })
+    }
+
+    onChange = ({value, date, comment}) => {
         const transaction = {
             value: +value,
             comment,
             date,
             id: Date.now()
         }
-
-        setBalance(balance + Number(value))
-
-        setTransactions([
-            transaction,
-            ...transactions
-        ])
+        this.setState((state) => ({
+            balance: state.balance + Number(value),
+            transactions: [
+                transaction,
+                ...state.transactions]
+        }));
 
         addItem(transaction)
+
     }
 
-    useEffect(() => {
-        getItems().then((item) => {
-            setTransactions(item)
-        }).catch((e) => {
-        })
-    }, [])
-
-    return (
-        <ErrorBoundary>
-            <Wrapper>
-                <Header/>
-                <GlobalStyle/>
-                <Balance balance={balance}/>
-                <Form onChange={onChange}/>
-                <hr/>
-                <Transactions transactions={transactions}/>
-            </Wrapper>
-        </ErrorBoundary>
-    )
-
-};
+    render() {
+        return (
+            <ErrorBoundary>
+                <Wrapper>
+                    <Balance balance={this.state.balance}/>
+                    <Form onChange={this.onChange}/>
+                    <hr/>
+                    <Transactions transactions={this.state.transactions}/>
+                </Wrapper>
+            </ErrorBoundary>
+        )
+    }
+}
 
 export default Home;
