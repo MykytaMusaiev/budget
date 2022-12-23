@@ -1,10 +1,10 @@
 import React from 'react';
-import {Wrapper} from "./styles";
-import {Route, Routes} from "react-router-dom"
-import Home from "../Home";
-import Statistics from "../Statistics";
-import About from "../About";
 import {open} from "../../utils/indexdb"
+import Header from "../Header";
+
+
+import {GlobalStyle, Wrapper} from "./styles";
+import LinksRouter from "../Router";
 
 class App extends React.Component {
     constructor(props) {
@@ -30,14 +30,12 @@ class App extends React.Component {
         }
         return (
             <Wrapper>
-                <Routes>
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="/statistics" element={<Statistics/>}/>
-                    <Route path="/about" element={<About/>}/>
-                </Routes>
+                <GlobalStyle/>
+                    <Header/>
+                <LinksRouter/>
             </Wrapper>
         )
     }
-};
+}
 
 export default App;

@@ -22,7 +22,6 @@ const Form = (props) => {
 
     const onChange = (e) => {
         const {value, name} = e.target
-        console.log('onchange', e)
         // class component мерджить данні, а функціональний ні, тож треба передавати форму повністю, і вже тоді міняти точково
         setForm({
             ...form,

@@ -7,7 +7,9 @@ exports[`Transaction component should show transaction 1`] = `
   <Comment>
     01.01.2022
   </Comment>
-  <styled.div>
+  <styled.div
+    name="value"
+  >
     Value: 
     23.00
   </styled.div>
