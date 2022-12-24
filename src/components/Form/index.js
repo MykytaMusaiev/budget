@@ -6,7 +6,8 @@ const Form = (props) => {
     const [form, setForm] = useState({
         value: '',
         date: new Date().toISOString().substring(0, 10),
-        comment: ''
+        comment: '',
+        isStarred: false
     })
 
     const onSubmit = (e) => {
