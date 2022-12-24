@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/budget/static/js/main.3f3b88fe.js",
+    "static/media/star_golden.png": "/budget/static/media/star_golden.aff496e88c4c22ccc594.png",
+    "index.html": "/budget/index.html",
+    "main.3f3b88fe.js.map": "/budget/static/js/main.3f3b88fe.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.3f3b88fe.js"
+  ]
+}
