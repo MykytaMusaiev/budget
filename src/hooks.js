@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useState} from 'react';
 import {STATUSES} from './constant/index'
-import {addItem, getItems} from "./utils/indexdb";
+import {addItem, deleteItem, getItems, updateItem} from "./utils/indexdb";
 
 export const useBooleanToggle = (initialStatus = false) => {
     const [status, setStatus] = useState(initialStatus);
@@ -59,17 +59,25 @@ export const useData = () => {
             ...state,
             transactions: state.transactions.filter((item) => item.id !== id)
         }))
+        deleteItem(id)
     }, [])
 
     const onStarClick = useCallback((id) => {
-        setState((state) => ({
-            ...state,
-            transactions: state.transactions.map((item) => item.id !== id ? item : {
-                ...item,
-                isStarred: !item.isStarred
-            })
-        }))
-    }, [])
+        const item = state.transactions.find((i) => i.id === id);
+
+        updateItem({
+            ...item,
+            isStarred: !item.isStarred
+        }).then(() => {
+            setState((state) => ({
+                ...state,
+                transactions: state.transactions.map((item) => item.id !== id ? item : {
+                    ...item,
+                    isStarred: !item.isStarred
+                })
+            }))
+        })
+    }, [setState, state])
 
     return {
         ...state,
