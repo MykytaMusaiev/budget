@@ -1,7 +1,9 @@
+import {Text} from "./styles";
+
 const Balance = ({balance}) => {
     return (
         <>
-            <div>Поточний баланс: {balance}</div>
+            <Text>Поточний баланс: {balance}</Text>
         </>
     )
 }

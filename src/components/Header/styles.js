@@ -8,6 +8,9 @@ export const Nav = styled.nav `
       padding: 0 5px;
       li{
         margin-right: 25px;
+        a{
+          color: ${ ({theme}) => theme.linkColor};
+        }
       }
     }
 `;

@@ -14,6 +14,14 @@ const reducer = (state, action) => {
         case 'reset' : {
             return defaultContext;
         }
+
+        case 'setTheme': {
+            return {
+                ...state,
+                themeName: action.themeName
+            }
+        }
+
         default:
             throw new Error();
     }
