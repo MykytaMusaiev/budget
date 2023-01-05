@@ -4,7 +4,7 @@ import {THEMES} from "../../providers/themes/themeList";
 import {saveToStorage} from "../../utils/SessionStorage";
 
 export const ThemeSwitch = () => {
-    const {state, dispatch} = useContext(AppContext)
+    const {dispatch} = useContext(AppContext)
     const setTheme = (themeName) => {
         dispatch({
             type: 'setTheme',
