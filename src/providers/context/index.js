@@ -22,6 +22,13 @@ const reducer = (state, action) => {
             }
         }
 
+        case 'setLocale': {
+            return {
+                ...state,
+                locale: action.locale
+            }
+        }
+
         default:
             throw new Error();
     }

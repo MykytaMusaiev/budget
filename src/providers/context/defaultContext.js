@@ -3,5 +3,6 @@ import {THEMES} from "../themes/themeList";
 
 export default {
     currency: 'UAH',
-    themeName: getFromStorage('themeName') || THEMES.LIGHT
+    themeName: getFromStorage('themeName') || THEMES.LIGHT,
+    locale: "uk-ua"
 }
