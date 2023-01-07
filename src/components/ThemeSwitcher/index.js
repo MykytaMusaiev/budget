@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import {AppContext} from "../../providers/context";
 import {THEMES} from "../../providers/themes/themeList";
 import {saveToStorage} from "../../utils/SessionStorage";
+import {FormattedMessage} from "react-intl";
 
 export const ThemeSwitch = () => {
     const {dispatch} = useContext(AppContext)
@@ -15,8 +16,12 @@ export const ThemeSwitch = () => {
     }
     return(
         <>
-            <button onClick={() => setTheme(THEMES.LIGHT)}>Light</button>
-            <button onClick={() => setTheme(THEMES.DARK)}>Dark</button>
+            <button onClick={() => setTheme(THEMES.LIGHT)}>
+                <FormattedMessage id="themes.light"/>
+            </button>
+            <button onClick={() => setTheme(THEMES.DARK)}>
+                <FormattedMessage id="themes.dark"/>
+            </button>
         </>
     )
 }

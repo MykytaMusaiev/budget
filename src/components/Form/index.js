@@ -1,6 +1,7 @@
-import { useState} from "react";
+import {useState} from "react";
 import PropTypes from 'prop-types';
 import {Button, Comment, Input, Row, Wrapper} from "./styles";
+import {FormattedMessage} from "react-intl";
 
 const Form = (props) => {
     const [form, setForm] = useState({
@@ -30,35 +31,43 @@ const Form = (props) => {
         })
     }
 
-        return (
-            <Wrapper>
-                <form onSubmit={onSubmit}>
-                    <Row>
-                        <Input
-                            name="value"
-                            type="number"
-                            placeholder="Сумма"
-                            value={form.value}
-                            onChange={onChange}
-                        />
-                        <Input
-                            name="date"
-                            type="date"
-                            value={form.date}
-                            onChange={onChange}
-                        />
-                    </Row>
-                    <Row>
-                        <Button>Зберегти</Button>
-                        <Comment
-                            name="comment"
-                            value={form.comment}
-                            onChange={onChange}
-                        />
-                    </Row>
-                </form>
-            </Wrapper>
-        )
+    return (
+        <Wrapper>
+            <form onSubmit={onSubmit}>
+                <Row>
+                    <FormattedMessage id="form.placeholder">
+                        {
+                            placeholder => (
+                                <Input
+                                    name="value"
+                                    type="number"
+                                    placeholder={placeholder}
+                                    value={form.value}
+                                    onChange={onChange}
+                                />
+                            )
+                        }
+                    </FormattedMessage>
+                    <Input
+                        name="date"
+                        type="date"
+                        value={form.date}
+                        onChange={onChange}
+                    />
+                </Row>
+                <Row>
+                    <Button>
+                        <FormattedMessage id="form.saveButton"/>
+                    </Button>
+                    <Comment
+                        name="comment"
+                        value={form.comment}
+                        onChange={onChange}
+                    />
+                </Row>
+            </form>
+        </Wrapper>
+    )
 
 }
 

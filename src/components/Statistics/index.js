@@ -1,5 +1,9 @@
+import {FormattedMessage} from "react-intl";
+
 const Statistics = () => (
-    <h1>Statistics page</h1>
+    <h1>
+        <FormattedMessage id="statistics.title"/>
+    </h1>
 )
 
 export default Statistics
