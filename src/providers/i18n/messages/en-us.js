@@ -11,7 +11,7 @@ export default {
         },
         themes: {
             light: 'Light',
-            dark: 'Dark,',
+            dark: 'Dark',
         },
         form: {
             currBalance: 'Current Balance',

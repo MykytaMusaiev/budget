@@ -11,7 +11,7 @@ export default {
         },
         themes: {
             light: 'Світла',
-            dark: 'Темна,',
+            dark: 'Темна',
         },
         form: {
             currBalance: 'Поточний Баланс',
