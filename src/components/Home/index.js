@@ -3,11 +3,11 @@ import {useData} from "../../hooks";
 
 import Balance from "../Balance";
 import Transactions from "../Transactions";
-import Form from "../Form";
 import ErrorBoundary from "../ErrorBoundary";
 import {STATUSES} from '../../constant/index';
 
 import {GlobalStyle, Wrapper} from "./styles";
+import {ChangeBalance} from "../ChangeBalance";
 
 const Home = () => {
     const [balance, setBalance] = useState(0);
@@ -23,7 +23,8 @@ const Home = () => {
             <Wrapper>
                 <GlobalStyle/>
                 <Balance balance={balance}/>
-                <Form onChange={onChange}/>
+
+                <ChangeBalance onChange={onChange}/>
                 <hr/>
                 {status === STATUSES.PENDING ? <div>Loading...</div> : null}
                 {status === STATUSES.SUCCESS ?

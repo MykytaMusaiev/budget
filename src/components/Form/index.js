@@ -20,6 +20,7 @@ const Form = (props) => {
             value: "",
             comment: ""
         })
+        props.onCloseFormModal()
     }
 
     const onChange = (e) => {
