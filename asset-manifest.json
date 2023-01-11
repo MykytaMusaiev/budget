@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/budget/static/js/main.fda17e4d.js",
+    "main.js": "/budget/static/js/main.da13ad4f.js",
     "static/media/star_golden.png": "/budget/static/media/star_golden.aff496e88c4c22ccc594.png",
     "index.html": "/budget/index.html",
-    "main.fda17e4d.js.map": "/budget/static/js/main.fda17e4d.js.map"
+    "main.da13ad4f.js.map": "/budget/static/js/main.da13ad4f.js.map"
   },
   "entrypoints": [
-    "static/js/main.fda17e4d.js"
+    "static/js/main.da13ad4f.js"
   ]
 }
